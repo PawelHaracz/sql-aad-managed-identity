@@ -1,8 +1,11 @@
 ﻿// See https://aka.ms/new-console-template for more information
 
+using Microsoft.EntityFrameworkCore;
+
 Console.WriteLine("Hello, World!");
 
 await using var ctx = new BloggingContext();
+await ctx.Database.MigrateAsync();
 
  ctx.Add(new Blog()
  {
